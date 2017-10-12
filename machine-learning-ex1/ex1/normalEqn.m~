@@ -13,9 +13,9 @@ theta = zeros(size(X, 2), 1);
 % ---------------------- Sample Solution ----------------------
 
 
-X_transpose = X';
+X_transpost = X';
 
-theta = pinv(X_transpose * X) * X_transpose * y;
+theta = pinv(X_transpose * )
 
 % -------------------------------------------------------------
 
