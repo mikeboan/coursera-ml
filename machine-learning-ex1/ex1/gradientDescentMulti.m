@@ -17,16 +17,15 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
+    h_theta = X * theta;
+    cost = h_theta - y;
+    new_theta = theta;
+        
+    for row = 1:size(theta, 1)
+        new_theta(row, :) = theta(row) - alpha / m * sum(cost .* X(:, row));
+    end
 
-
-
-
-
-
-
-
-
-
+    theta = new_theta;
     % ============================================================
 
     % Save the cost J in every iteration    
