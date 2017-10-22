@@ -19,7 +19,15 @@ grad = zeros(size(theta));
 
 
 
+h = sigmoid(X * theta);
+thetaWithoutZerothTerm = theta(2:length(theta));
 
+J_orig = sum((-y' * log(h)) - ((1 - y)' * log(1 - h))) / m;
+reg = (lambda / (2 * m)) * sum(thetaWithoutZerothTerm .^ 2);
+J = J_orig + reg;
+
+grad = sum((h - y) .* X) / m - lambda / m .* theta;
+grad(:, 1) = sum((h - y) .* X) / m; % theta_0 is not regularized
 
 
 % =============================================================
